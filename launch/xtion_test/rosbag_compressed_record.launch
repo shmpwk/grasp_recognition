@@ -6,7 +6,6 @@
   <arg if="$(arg compress)" name="compress_flag" value="--bz2" />
   <arg unless="$(arg compress)" name="compress_flag" value="" />
 
-
   <node name="rosbag_record" pkg="rosbag" type="record"
       args="-q $(arg compress_flag) -O /home/shumpeiwakabayashi/data/rosbags/$(arg rosbag) -b 0
           /rosout
