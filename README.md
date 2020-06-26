@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # grasp_recognition
 
 ## Description
@@ -10,7 +10,7 @@ roslaunch grasp_recognition rosbag_compressed_record.launch rosbag:=NAME.bag
 ```
 Currently, rosbag files are saved at /home/shumpeiwakabayashi/data/rosbags
 
-***************************************************************************************:::
+*************************************************************************************************
 ## xtionカメラでobject detection
 ### xtionを立ち上げる
 ```
