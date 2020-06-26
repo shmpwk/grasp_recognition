@@ -9,10 +9,8 @@ This is the package for robot recognition
 roslaunch grasp_recognition rosbag_compressed_record.launch rosbag:=NAME.bag
 ```
 Currently, rosbag files are saved at /home/shumpeiwakabayashi/data/rosbags
-=======
-# detector_coral
 
-
+***************************************************************************************:::
 ## xtionカメラでobject detection
 ### xtionを立ち上げる
 ```
@@ -36,4 +34,3 @@ rosrun image_view2 image_view2 image_view image:=/edgetpu_object_detector/output
 `edgetpu_object_detector.launch`のmodel_fileとlabel_fileを置き換える．
 具体的には，dlboxで学習させたラベルと.tfliteを持ってくればよいだろう．
 
->>>>>>> detector_coral/master
