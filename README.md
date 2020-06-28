@@ -2,19 +2,26 @@
 # grasp_recognition
 
 ## Description
-This is the package for robot recognition
+This is the package for robot recognition, s.t. grasping.
 
 ### record rosbag
 ```
-roslaunch grasp_recognition rosbag_compressed_record.launch rosbag:=NAME.bag
+roslaunch grasp_recognition rosbag_compressed_record.launch rosbag:=NAME.bag compress:=true
 ```
 Currently, rosbag files are saved at /home/shumpeiwakabayashi/data/rosbags
+
+### play rosbag
+```
+$ roslaunch grasp_recognition env.launch 
+$ roslaunch grasp_recognition depth2pcl.launch 
+$ rosbag play 202006270105.bag -l
+```
 
 *************************************************************************************************
 ## xtionカメラでobject detection
 ### xtionを立ち上げる
 ```
-source /opt/ros/melodic/setup.bas
+source /opt/ros/melodic/setup.bash
 roslaunch openni2_launch openni2.launch 
 ```
 ### Coralの認識ノードを立ち上げる
