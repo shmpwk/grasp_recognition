@@ -26,6 +26,7 @@ $ roslaunch coral_usb edgetpu_obj_detector.launch INPUT_IMAGE:=/camera/rgb/image
 $ cd ~/data/rosbags
 $ rosbag play 202006291015.bag -l
 ($  rosrun image_view image_view image:=/edgetpu_object_detector/output/image)
+![Screenshot from 2020-06-29 10-56-32](https://user-images.githubusercontent.com/42209144/85966065-ac7ba100-b9f9-11ea-87ba-0691ccb81511.png)
 
 
 
