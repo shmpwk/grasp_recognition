@@ -17,6 +17,18 @@ $ roslaunch grasp_recognition depth2pcl.launch
 $ rosbag play 202006270105.bag -l
 ```
 
+### object detection
+First, connect coral edge TPU.
+```
+$ roslaunch grasp_recognition env_bag.launch
+$ roslaunch grasp_recognition depth2pcl.launch
+$ roslaunch coral_usb edgetpu_obj_detector.launch INPUT_IMAGE:=/camera/rgb/image_raw
+$ cd ~/data/rosbags
+$ rosbag play 202006291015.bag -l
+($  rosrun image_view image_view image:=/edgetpu_object_detector/output/image)
+
+
+
 *************************************************************************************************
 ## xtionカメラでobject detection
 ### xtionを立ち上げる
