@@ -15,9 +15,13 @@
           msg_class: sensor_msgs/Image
           fname: image_rect_color_request.png
           savetype: ColorImage
-        - name: /camera/depth_registered/points
-          msg_class: sensor_msgs/PointCloud2
+        - name: /camera/depth_registered/sw_registered/image_rect
+          msg_class: sensor_msgs/Image
           fname: depth_registered_points.pkl
+          savetype: DepthImage
+        - name: /camera/depth/image_rect
+          msg_class: sensor_msgs/Image
+          fname: depth_rect.pkl
           savetype: DepthImage
     </rosparam>
   </node>
