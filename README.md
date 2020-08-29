@@ -59,5 +59,5 @@ rosrun image_view2 image_view2 image_view image:=/edgetpu_object_detector/output
 See [here](https://jsk-common.readthedocs.io/en/latest/jsk_data/node_scripts/data_collection_server.html)
 ```
 roslaunch grasp_recognition data_collection_server_test.launch
-rosservice call /after_stow_data_collection/save_request "{}"
+rosservice call /data_collection/save_request "{}"
 ```
