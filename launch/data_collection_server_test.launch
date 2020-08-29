@@ -18,6 +18,7 @@
         - name: /camera/depth_registered/points
           msg_class: sensor_msgs/PointCloud2
           fname: depth_registered_points.pkl
+          savetype: DepthImage
     </rosparam>
   </node>
 </launch>
