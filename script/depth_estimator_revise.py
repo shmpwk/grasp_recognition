@@ -19,7 +19,7 @@ def ImageCallback(rgb_data , depth_data):
     except CvBridgeError, e:
         rospy.logerr(e)
 
-    #color_image.flags.writeable = True
+    #color_image.flags.writeable = True #It leads errors 
     color_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB) 
     h, w, c = color_image.shape
 
