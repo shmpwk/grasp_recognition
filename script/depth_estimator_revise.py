@@ -38,7 +38,7 @@ def ImageCallback(rgb_data , depth_data):
             if depth_image.item(i,j) == depth_image.item(i,j):
                 sum += depth_image.item(i,j)
 
-    ave = sum / ((WIDTH * 2) * (HEIGHT * 2))
+    ave = sum / ((WIDTH * 2) * (HEIGHT * 2)) #average distance 
     print("%f [m]" % ave)
 
     cv2.normalize(depth_image, depth_image, 0, 1, cv2.NORM_MINMAX)
@@ -51,7 +51,7 @@ def ImageCallback(rgb_data , depth_data):
 if __name__ == '__main__':
     rospy.init_node('depth_estimater', anonymous=True)
     sub_rgb = message_filters.Subscriber("/camera/rgb/image_raw",Image)
-    sub_depth = message_filters.Subscriber("/camera/depth/image_raw",Image)
+    sub_depth = message_filters.Subscriber("/camera/depth_registered/sw_registered/image_rect",Image)
     mf = message_filters.ApproximateTimeSynchronizer([sub_rgb, sub_depth], 100, 10.0)
     mf.registerCallback(ImageCallback)
     rospy.spin()
