@@ -8,7 +8,8 @@ import message_filters
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Point
- 
+from rrt_exploration.msg import PointArray
+
 def ImageCallback(rgb_data , depth_data):
     WIDTH = 50
     HEIGHT = 25
@@ -28,6 +29,7 @@ def ImageCallback(rgb_data , depth_data):
     y1 = (h / 2) - HEIGHT
     y2 = (h / 2) + HEIGHT
     sum = 0.0
+    points = []
 
     for i in range(y1, y2):
         for j in range(x1, x2):
@@ -37,8 +39,9 @@ def ImageCallback(rgb_data , depth_data):
 
             if depth_image.item(i,j) == depth_image.item(i,j):
                 point = Point(i, j, depth_image.item(i,j))
-                pub.publish(point)
+                points.append(point)
 
+    pub.publisher(points)            
     ave = sum / ((WIDTH * 2) * (HEIGHT * 2)) #average distance 
     print("%f [m]" % ave)
 
@@ -49,8 +52,6 @@ def ImageCallback(rgb_data , depth_data):
     cv2.imshow("depth_image", depth_image)
     cv2.waitKey(10)
 
-
- 
 if __name__ == '__main__':
     rospy.init_node('depth_estimater', anonymous=True)
     sub_rgb = message_filters.Subscriber("/camera/rgb/image_raw",Image)

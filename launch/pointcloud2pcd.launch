@@ -1,0 +1,15 @@
+<launch>
+  <arg name="INPUT" default="/camera/depth_registered/points" />
+
+  <node name="pointcloud_to_pcd" type="nodelet" pkg="nodelet"
+        args="standalone jsk_pcl_utils/PointCloudToPCD" output="screen" >
+    <remap from="~input" to="$(arg INPUT)" />
+    <rosparam subst_value="true">
+      prefix: $(find grasp_recognition)/pcd/pcd_test
+      duration: 0.5
+      binary: false
+      compressed: false
+      fixed_frame: camera_depth_optical_frame
+    </rosparam>
+  </node>
+</launch>
