@@ -1,0 +1,45 @@
+<launch>
+
+  <arg name="gui" default="true" />
+
+  <node name="depth_image_creator"
+        pkg="nodelet" type="nodelet"
+        args="standalone jsk_pcl/DepthImageCreator">
+    <remap from="~input" to="/camera/depth_registered/points" />
+    <remap from="~info" to="/camera/rgb/camera_info" />
+    <rosparam>
+      use_approximate: true
+      max_queue_size: 3
+      max_pub_queue_size: 1
+      max_sub_queue_size: 1
+    </rosparam>
+  </node>
+
+  <group ns="/camera">
+    <node name="pointcloud_xyzrgb_to_xyz"
+          pkg="nodelet" type="nodelet"
+          args="standalone jsk_pcl_utils/PointCloudXYZRGBToXYZ">
+      <remap from="~input" to="depth_registered/points" />
+    </node>
+    <node name="depth_image_creator"
+          pkg="nodelet" type="nodelet"
+          args="standalone jsk_pcl/DepthImageCreator">
+      <remap from="~input" to="pointcloud_xyzrgb_to_xyz/output" />
+      <remap from="~info" to="/camera/rgb/camera_info" />
+      <rosparam>
+        use_approximate: true
+        max_queue_size: 3
+        max_pub_queue_size: 1
+        max_sub_queue_size: 1
+      </rosparam>
+    </node>
+  </group>
+
+  <group if="$(arg gui)">
+    <node name="rviz"
+          pkg="rviz" type="rviz"
+          args="-d $(find grasp_recognition)/config/depth_image_creator.rviz">
+    </node>
+  </group>
+
+</launch>
