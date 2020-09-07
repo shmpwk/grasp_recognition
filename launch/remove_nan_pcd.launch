@@ -1,0 +1,3 @@
+<launch>
+    <node name="remove_nan_pcd" pkg="grasp_recognition" type="remove_nan_pcd"/>
+</launch>
