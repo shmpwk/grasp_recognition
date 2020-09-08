@@ -4,6 +4,7 @@
 import rospy
 import cv2
 import sys
+import csv
 import message_filters
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
@@ -44,6 +45,9 @@ def ImageCallback(rgb_data , depth_data):
     pub.publisher(points)            
     ave = sum / ((WIDTH * 2) * (HEIGHT * 2)) #average distance 
     print("%f [m]" % ave)
+    with open('data/temp/sample_writer.csv', 'w') as f:
+    writer = csv.writer(f)
+    writer.writerows(depth_image)
 
     cv2.normalize(depth_image, depth_image, 0, 1, cv2.NORM_MINMAX)
     cv2.namedWindow("color_image")
