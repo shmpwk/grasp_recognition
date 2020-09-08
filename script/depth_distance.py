@@ -9,7 +9,7 @@ import message_filters
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Point
-from rrt_exploration.msg import PointArray
+#from rrt_exploration.msg import PointArray
 
 def ImageCallback(rgb_data , depth_data):
     WIDTH = 50
@@ -42,12 +42,16 @@ def ImageCallback(rgb_data , depth_data):
                 point = Point(i, j, depth_image.item(i,j))
                 points.append(point)
 
-    pub.publisher(points)            
+    #pub.publisher(points)            
     ave = sum / ((WIDTH * 2) * (HEIGHT * 2)) #average distance 
-    print("%f [m]" % ave)
-    with open('data/temp/sample_writer.csv', 'w') as f:
-    writer = csv.writer(f)
-    writer.writerows(depth_image)
+    #print("%f [m]" % ave)
+    #print(points)
+    with open('sample_depth_image.csv', 'w') as f:
+        writer = csv.writer(f)
+        writer.writerows(depth_image) #datasize=480
+    #with open('sample_points.csv', 'w') as f:
+    #    writer = csv.writer(f)
+    #    writer.writerows(points)
 
     cv2.normalize(depth_image, depth_image, 0, 1, cv2.NORM_MINMAX)
     cv2.namedWindow("color_image")
