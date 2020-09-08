@@ -9,7 +9,6 @@ import message_filters
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Point
-#from rrt_exploration.msg import PointArray
 
 def ImageCallback(rgb_data , depth_data):
     WIDTH = 50
