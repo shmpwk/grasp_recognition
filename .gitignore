@@ -3,3 +3,5 @@ pcd/
 *.gv
 *.pdf
 *.bag
+*~
+*.swp
