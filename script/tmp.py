@@ -14,6 +14,7 @@ flags.DEFINE_integer(
 def main(argv):
     # print('FLAGS.foo is {}'.format(FLAGS.foo))
   print('hoge is {}'.format(FLAGS.hoge))
+  print('foo is {}' .format(FLAGS.foo))
 
 
 if __name__ == '__main__':
