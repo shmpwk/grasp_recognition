@@ -7,8 +7,8 @@
 
   <node name="virtual_camera_mono"
         pkg="jsk_perception" type="virtual_camera_mono">
-        <remap from="~image" to="/camera/rgb/image_rect_color"/>
-        <remap from="~camera_info" to="/camera/rgb/camera_info"/>
+        <remap from="image" to="/camera/rgb/image_rect_color"/>
+        <remap from="camera_info" to="/camera/rgb/camera_info"/>
         <rosparam>
             frame_id: dummy_frame
             child_frame_id: virtual_camera_frame
