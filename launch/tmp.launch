@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="paused" default="false"/>
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="--hoge 1000"/>
+  <node name="tekito" pkg="grasp_recognition" type="tmp.py" args="$(arg command_arg1)" output="screen"/>
+</launch>
