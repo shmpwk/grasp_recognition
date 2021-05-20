@@ -1,0 +1,15 @@
+<launch>
+  <arg name="BAG_NAME" default="sample"/>   
+ 
+  <node name="image_republish" pkg="image_transport" type="republish" args="compressed raw">
+    <remap from="in" to="/kinect_head/rgb/throttled/image_rect_color" />
+    <remap from="out" to="/kinect_head/rgb/throttled/image_rect_color" />
+  </node> 
+  <!-- jpg images are created in ~/.ros -->
+  <!-- you can convert jpg to mp4 like -->
+  <!-- ffmpeg -r 10 -i frame%04d.jpg test.mp4 -->
+  <node pkg="rosbag" type="play" name="rosbag" args="-d 2 $(arg BAG_NAME).bag"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/kinect_head/rgb/throttled/image_rect_color"/>
+  </node>
+</launch>
