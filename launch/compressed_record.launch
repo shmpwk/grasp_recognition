@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="rosbag" />
+  <arg name="compress" default="false" />
+
+  <arg if="$(arg compress)" name="compress_flag" value="--bz2" />
+  <arg unless="$(arg compress)" name="compress_flag" value="" />
+
+  <node name="rosbag_record" pkg="rosbag" type="record"
+    args="-q $(arg compress_flag) -O /home/shmpwk/Data/rosbags/$(arg rosbag) -b 0
+        /rosout
+        /tf
+        /tf_static
+        /edgetpu_object_detector/output/class
+        /edgetpu_object_detector/output/image
+        /edgetpu_object_detector/output/image/compressed
+        /edgetpu_object_detector/output/rects
+        /kinect_head/depth_registered/camera_info
+        /kinect_head/depth_registered/image_rect
+        /kinect_head/depth_registered/image_rect/compressedDepth
+        /kinect_head/depth_registered/points
+        /kinect_head/depth_registered/points_self_filtered
+        /kinect_head/depth_registered/quater/points
+        /kinect_head/depth_registered/quater/throttled/points
+        /kinect_head/depth_registered/throttled/camera_info
+        /kinect_head/depth_registered/throttled/image_rect
+        /kinect_head/depth_registered/throttled/image_rect/compressedDepth
+        /kinect_head/depth_registered/throttled/points
+        /kinect_head/rgb/camera_info
+        /kinect_head/rgb/image_rect_color
+        /kinect_head/rgb/image_rect_color/compressed
+        /kinect_head/rgb/image_rect_color/compressedDepth
+        /kinect_head/rgb/quater/camera_info
+        /kinect_head/rgb/quater/image_rect_color
+        /kinect_head/rgb/throttled/camera_info
+        /kinect_head/rgb/throttled/image_rect_color
+        /kinect_head/rgb/throttled/image_rect_color/compressed
+        /l_arm_controller/command
+        /l_arm_controller/state
+        /l_gripper_controller/command
+        /l_gripper_controller/state
+        /left_endeffector/wrench
+        /mechanism_statistics
+        /message_store/insert
+        /prosilica/camera_info
+        /prosilica/image_rect
+        /prosilica/image_rect/compressed
+        /prosilica/image_rect/compressedDepth
+        /prosilica/image_rect/theora
+        /r_arm_controller/command
+        /r_arm_controller/state
+        /r_gripper_controller/command
+        /r_gripper_controller/state
+        /right_endeffector/wrench
+        /robot_interface_marker_array"
+      output="screen" />
+
+</launch>
