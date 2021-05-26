@@ -42,6 +42,7 @@
         /left_endeffector/wrench
         /mechanism_statistics
         /message_store/insert
+        /object_force
         /prosilica/camera_info
         /prosilica/image_rect
         /prosilica/image_rect/compressed
