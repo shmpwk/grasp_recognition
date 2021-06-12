@@ -30,30 +30,13 @@
         /kinect_head/rgb/image_rect_color
         /kinect_head/rgb/image_rect_color/compressed
         /kinect_head/rgb/image_rect_color/compressedDepth
-        /kinect_head/rgb/quater/camera_info
-        /kinect_head/rgb/quater/image_rect_color
-        /kinect_head/rgb/throttled/camera_info
-        /kinect_head/rgb/throttled/image_rect_color
-        /kinect_head/rgb/throttled/image_rect_color/compressed
-        /l_arm_controller/command
-        /l_arm_controller/state
-        /l_gripper_controller/command
-        /l_gripper_controller/state
         /left_endeffector/wrench
-        /mechanism_statistics
-        /message_store/insert
-        /object_force
         /prosilica/camera_info
         /prosilica/image_rect
         /prosilica/image_rect/compressed
         /prosilica/image_rect/compressedDepth
-        /prosilica/image_rect/theora
-        /r_arm_controller/command
-        /r_arm_controller/state
-        /r_gripper_controller/command
-        /r_gripper_controller/state
         /right_endeffector/wrench
-        /robot_interface_marker_array"
+        "
       output="screen" />
 
 </launch>
