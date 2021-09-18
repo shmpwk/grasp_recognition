@@ -61,3 +61,9 @@ See [here](https://jsk-common.readthedocs.io/en/latest/jsk_data/node_scripts/dat
 roslaunch grasp_recognition data_collection_server_test.launch
 rosservice call /data_collection/save_request "{}"
 ```
+
+### convert_to_gif.sh
+shell script to convert video into gif file
+```
+./convert_to_gif.sh video.mp4
+```
