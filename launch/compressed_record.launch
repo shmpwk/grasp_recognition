@@ -16,12 +16,10 @@
         /edgetpu_object_detector/output/rects
         /kinect_head/depth_registered/camera_info
         /kinect_head/depth_registered/image_rect/compressedDepth
-        /kinect_head/depth_registered/points
         /kinect_head/depth_registered/quater/points
         /kinect_head/depth_registered/quater/throttled/points
         /kinect_head/depth_registered/throttled/camera_info
         /kinect_head/depth_registered/throttled/image_rect/compressedDepth
-        /kinect_head/depth_registered/throttled/points
         /kinect_head/rgb/camera_info
         /kinect_head/rgb/image_rect_color/compressed
         /kinect_head/rgb/image_rect_color/compressedDepth
