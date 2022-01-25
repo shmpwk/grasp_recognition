@@ -31,6 +31,7 @@
         /prosilica/image_rect/compressedDepth
         /right_endeffector/wrench
         /r_arm_controller/state
+        /piechart_publisher
         "
       output="screen" />
 
